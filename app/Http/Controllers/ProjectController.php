@@ -14,7 +14,19 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $items = Project::latest('updated_at')->get();
+
+       // dd(Auth()->user()->role);
+
+        if(Auth()->user()->role==10){
+            $items = Project::latest('updated_at')->get();
+        }
+        else {
+
+            $items = Project::where('user_id' ,Auth()->id())->latest('updated_at')->get();
+        }
+
+
+        
 
         return view('admin.projects.index', compact('items'));
     }

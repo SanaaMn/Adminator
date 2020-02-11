@@ -19,7 +19,7 @@ class ProjectSeeder extends Seeder
 
         $user = App\User::pluck('id');
 
-        for ($i = 1; $i <= 1 ; $i++) {
+        for ($i = 1; $i <= 20 ; $i++) {
             array_push($data, [
                 'name'     => $faker->name,
                 'user_id'    => $faker->randomElement($user),

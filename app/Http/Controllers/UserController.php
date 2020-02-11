@@ -17,6 +17,10 @@ class UserController extends Controller
     {
         $items = User::latest('updated_at')->get();
 
+        if(Auth()->user()->role==10){
+            $items =User::latest('updated_at')->get();
+        }
+        
         return view('admin.users.index', compact('items'));
     }
 

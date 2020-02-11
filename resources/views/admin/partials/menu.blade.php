@@ -12,10 +12,20 @@
     </a>
 </li>
 <li class="nav-item">
+
+@if (Auth()->user()->role==10)
     <a class="sidebar-link {{ Str::startsWith($route, ADMIN . '.users') ? 'active' : '' }}" href="{{ route(ADMIN . '.users.index') }}">
         <span class="icon-holder">
             <i class="c-brown-500 ti-user"></i>
         </span>
         <span class="title">Users</span>
+    </a>
+
+@endif
+    <a class="sidebar-link {{ Str::startsWith($route, ADMIN . '.projects') ? 'active' : '' }}" href="{{ route(ADMIN . '.projects.index') }}">
+        <span class="icon-holder">
+            <i class="c-Green-500 ti-package"></i>
+        </span>
+        <span class="title">Projects</span>
     </a>
 </li>

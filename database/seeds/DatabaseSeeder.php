@@ -13,6 +13,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(users::class);
         $this->call(ProjectSeeder::class);
+        $this->call(TaskSeeder::class);
+        $this->call(LabelSeeder::class);
+        $this->call(LabelTaskSeeder::class);
         if (config('variables.WITH_FAKER')) {
             // FAKE data
         }

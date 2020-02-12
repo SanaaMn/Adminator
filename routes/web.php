@@ -11,10 +11,9 @@ Auth::routes();
 Route::group(['prefix' => ADMIN, 'as' => ADMIN . '.'], function () {
     Route::get('/', 'DashboardController@index')->name('dash');
     Route::resource('projects', 'ProjectController');
-    Route::resource('Tasks', 'TaskController');
-});
-Route::group(['prefix' => ADMIN, 'as' => ADMIN . '.', 'middleware'=>['auth', 'Role:10']], function () {
-   Route::resource('users', 'UserController');
+    Route::get('projects/{project}/tasks', 'ProjectController@task')->name('projects.task');
+    Route::resource('tasks', 'TaskController');
+    Route::resource('users', 'UserController')->middleware(['auth', 'Role:10']);
 
 });
 Route::get('/', function () {

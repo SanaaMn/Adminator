@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Project;
+use App\Task;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -18,7 +19,7 @@ class ProjectController extends Controller
        // dd(Auth()->user()->role);
 
         if(Auth()->user()->role==10){
-            $items = Project::latest('updated_at')->get();
+            $items = Project::with('user')->latest('updated_at')->get();
         }
         else {
 
@@ -41,6 +42,15 @@ class ProjectController extends Controller
         return view('admin.projects.create');
     }
 
+
+    public function task($id)
+    {
+        
+            $items = Task::where('project_id' , $id)->with('project')->with('user')->latest('updated_at')->get();
+        
+           
+          return view('admin.tasks.index', compact('items'));
+    }
     /**
      * Store a newly created resource in storage.
      *

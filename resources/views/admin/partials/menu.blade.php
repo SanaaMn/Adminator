@@ -24,8 +24,15 @@
 @endif
     <a class="sidebar-link {{ Str::startsWith($route, ADMIN . '.projects') ? 'active' : '' }}" href="{{ route(ADMIN . '.projects.index') }}">
         <span class="icon-holder">
-            <i class="c-Green-500 ti-package"></i>
+            <i class="c-green-500 ti-package"></i>
         </span>
         <span class="title">Projects</span>
+    </a>
+
+    <a class="sidebar-link {{ Str::startsWith($route, ADMIN . '.tasks') ? 'active' : '' }}" href="{{ route(ADMIN . '.tasks.index') }}">
+        <span class="icon-holder">
+            <i class="c-red-500 ti-notepad"></i>
+        </span>
+        <span class="title">Tasks</span>
     </a>
 </li>

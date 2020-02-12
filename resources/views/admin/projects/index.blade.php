@@ -36,7 +36,7 @@
             <tbody>
                 @foreach ($items as $item)
                     <tr>
-                        <td><a href="{{ route(ADMIN . '.projects.edit', $item->id) }}">{{ $item->name }}</a></td>
+                        <td><a href="{{ route(ADMIN . '.projects.task', $item->id) }}" title="check tasks">{{ $item->name }}</a></td>
                         <td>{{ $item->user->name }}</td>
                         <td>{{ $item->deadline }}</td>
                         <td>
